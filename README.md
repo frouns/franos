@@ -29,11 +29,18 @@ FranOS is a personal operating system built with Next.js, Tailwind CSS, and Supa
    - `schema.sql` (Base)
    - `m3_migration.sql` (Tasks/Projects)
    - `m5_migration.sql` (Reviews)
+   - `remove_auth.sql` (REQUIRED: Disables Auth for Private Mode)
 
 4. **Run Development Server**:
    ```bash
    npm run dev
    ```
+
+## Private Mode (No Auth)
+This application has been converted to a **Private Web App**.
+- **No Login**: Authentication is disabled.
+- **Single User**: Data is stored without user separation.
+- **Security**: Row Level Security (RLS) is disabled. Do not expose this URL publicly without adding your own layer of protection (e.g. Vercel Basic Auth) if you have sensitive data.
 
 ## Deployment
 
