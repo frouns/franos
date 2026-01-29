@@ -106,11 +106,6 @@ function TaskItem({ task }: { task: Task }) {
 export default async function TodayPage({ searchParams }: { searchParams: Promise<{ project?: string }> }) {
     const params = await searchParams
     const supabase = await createClient()
-    const { data: { user } } = await supabase.auth.getUser()
-
-    if (!user) {
-        redirect('/login')
-    }
 
     return (
         <div className="max-w-2xl mx-auto p-6">

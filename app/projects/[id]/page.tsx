@@ -37,8 +37,6 @@ async function ProjectTasks({ projectId }: { projectId: string }) {
 export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params
     const supabase = await createClient()
-    const { data: { user } } = await supabase.auth.getUser()
-    if (!user) redirect('/login')
 
     const { data: project, error } = await supabase
         .from('projects')

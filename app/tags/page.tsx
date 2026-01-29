@@ -2,6 +2,7 @@ import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import { deleteTag } from '@/actions/tags'
 import { CreateTagForm } from './create-tag-form'
+import Link from 'next/link'
 
 async function TagList() {
     const supabase = await createClient()
@@ -36,23 +37,15 @@ async function TagList() {
 
 export default async function TagsPage() {
     const supabase = await createClient()
-    const { data: { user } } = await supabase.auth.getUser()
-
-    if (!user) {
-        redirect('/login')
-    }
 
     return (
         <div className="max-w-4xl mx-auto p-6">
             <div className="mb-6 flex justify-between items-center">
                 <h1 className="text-3xl font-bold tracking-tight">Tags</h1>
                 <div className="flex gap-4 text-sm">
-                    <a href="/inbox" className="text-gray-500 hover:text-gray-900 hover:underline">
+                    <Link href="/inbox" className="text-gray-500 hover:text-gray-900 hover:underline">
                         Inbox
-                    </a>
-                    <form action="/auth/signout" method="post">
-                        <button className="text-gray-500 hover:text-gray-900 border-none bg-transparent p-0 cursor-pointer">Sign Out</button>
-                    </form>
+                    </Link>
                 </div>
             </div>
 

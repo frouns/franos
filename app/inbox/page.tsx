@@ -28,12 +28,6 @@ async function NoteList() {
 }
 
 export default async function InboxPage() {
-    const supabase = await createClient()
-    const { data: { user } } = await supabase.auth.getUser()
-
-    if (!user) {
-        redirect('/login')
-    }
 
     return (
         <div className="max-w-2xl mx-auto p-6">
@@ -44,9 +38,6 @@ export default async function InboxPage() {
                     <Link href="/tags" className="text-gray-500 hover:text-gray-900 hover:underline">
                         Tags
                     </Link>
-                    <form action="/auth/signout" method="post">
-                        <button className="text-gray-500 hover:text-gray-900 border-none bg-transparent p-0 cursor-pointer">Sign Out</button>
-                    </form>
                 </div>
             </div>
 
