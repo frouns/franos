@@ -1,0 +1,36 @@
+
+> franos@0.1.0 build
+> next build --debug
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\franc\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\franc\.gemini\antigravity\scratch\franos\package-lock.json
+
+▲ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local
+
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.9s
+  Running TypeScript ...
+Failed to compile.
+
+./app/inbox/page.tsx:38:15
+Type error: Type '(formData: FormData) => Promise<{ error: string; success?: undefined; } | { success: boolean; error?: undefined; }>' is not assignable to type 'string | ((formData: FormData) => void | Promise<void>) | undefined'.
+  Type '(formData: FormData) => Promise<{ error: string; success?: undefined; } | { success: boolean; error?: undefined; }>' is not assignable to type '(formData: FormData) => void | Promise<void>'.
+    Type 'Promise<{ error: string; success?: undefined; } | { success: boolean; error?: undefined; }>' is not assignable to type 'void | Promise<void>'.
+      Type 'Promise<{ error: string; success?: undefined; } | { success: boolean; error?: undefined; }>' is not assignable to type 'Promise<void>'.
+        Type '{ error: string; success?: undefined; } | { success: boolean; error?: undefined; }' is not assignable to type 'void'.
+          Type '{ error: string; success?: undefined; }' is not assignable to type 'void'.
+
+[0m [90m 36 |[39m [36mfunction[39m [33mCreateNoteForm[39m() {
+ [90m 37 |[39m     [36mreturn[39m (
+[31m[1m>[22m[39m[90m 38 |[39m         [33m<[39m[33mform[39m action[33m=[39m{createNote} className[33m=[39m[32m"space-y-4"[39m[33m>[39m
+ [90m    |[39m               [31m[1m^[22m[39m
+ [90m 39 |[39m             [33m<[39m[33mdiv[39m[33m>[39m
+ [90m 40 |[39m                 [33m<[39m[33mlabel[39m htmlFor[33m=[39m[32m"content"[39m className[33m=[39m[32m"sr-only"[39m[33m>[39m[33mNote[39m [33mContent[39m[33m<[39m[33m/[39m[33mlabel[39m[33m>[39m
+ [90m 41 |[39m                 [33m<[39m[33mtextarea[39m[0m
+Next.js build worker exited with code: 1 and signal: null
